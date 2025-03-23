@@ -6,10 +6,15 @@ This is my attempt at learning stuff out in the open. I've been coding for a whi
 
 ## 2025 Learning Goals 
 - [ ] Git/Github
+  - [ ] Theory
+  - [ ] Basic Commands
+  - [ ] Sub repos
 - [ ] Bash/Zsh
+  - [ ] Customization!
 - [ ] Prefect
 - [ ] General Data Engineering Best Practice
 - [ ] Quarto
+- [ ] GIS w/ Python
 - [ ] Django (Basics)
 - [ ] DRF (Basics)
 - [ ] CLI Tools (Go)
