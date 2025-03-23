@@ -12,4 +12,4 @@ This is my attempt at learning stuff out in the open. I've been coding for a whi
 - [ ] Quarto
 - [ ] Django (Basics)
 - [ ] DRF (Basics)
-- [ ] 
+- [ ] CLI Tools (Go)
