@@ -1,0 +1,92 @@
+---
+title: Quarto Computations
+author: Walker Grier
+date: 2025-03-20
+execute:
+  echo: true
+format:
+  html:
+    code-fold: true
+    code-tools: true
+jupyter: python3
+number-sections: true
+tags:
+  - qmd_notes
+parent: "[[__link__]]"
+---
+
+# NumPy
+
+NumPy is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+
+```{python}
+# | echo: true
+import numpy as np
+a = np.arange(15).reshape(3, 5)
+a
+```
+
+# Matplotlib
+
+Matplotlib is a plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt, or GTK.
+
+```{python}
+# | label: fig-limits
+# | fig-cap: "Errorbar limit selector"
+
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+fig.set_size_inches(10, 6)
+
+x = np.arange(10)
+y = 2.5 * np.sin(x / 20 * np.pi)
+yerr = np.linspace(0.05, 0.2, 10)
+
+plt.errorbar(x, y + 3, yerr=yerr, label='both limits (default)')
+plt.errorbar(x, y + 2, yerr=yerr, uplims=True, label='uplims=True')
+plt.errorbar(
+    x,
+    y + 1,
+    yerr=yerr,
+    uplims=True,
+    lolims=True,
+    label='uplims=True, lolims=True'
+)
+
+upperlimits = [True, False] * 5
+lowerlimits = [False, True] * 5
+plt.errorbar(
+    x,
+    y,
+    yerr=yerr,
+    uplims=upperlimits,
+    lolims=lowerlimits,
+    label='subsets of uplims and lolims'
+)
+
+plt.legend(loc='lower right')
+plt.show(fig)
+```
+
+# Plotly
+
+Plotly is a technical computing company headquartered in Montreal, Quebec, that develops online data analytics and visualization tools.
+
+```{python}
+import plotly.express as px
+import plotly.io as pio
+gapminder = px.data.gapminder()
+gapminder2007 = gapminder.query("year == 2007")
+fig = px.scatter(
+    gapminder2007,
+    x="gdpPercap", 
+    y="lifeExp", 
+    color="continent",
+    size="pop", 
+    size_max=60,
+    hover_name="country"
+)
+fig.show()
+
+```
